@@ -1,0 +1,6 @@
+bazel-bin
+bazel-go-monorepo
+bazel-out
+bazel-testlogs
+.ijwb
+.idea
