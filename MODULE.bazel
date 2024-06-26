@@ -4,3 +4,8 @@
 #
 # For more details, please check https://github.com/bazelbuild/bazel/issues/18958
 ###############################################################################
+
+module(
+    name = "go-monorepo",
+    repo_name = "com_github_go_monorepo",
+)
