@@ -2,6 +2,7 @@ workspace(name = "go-monorepo")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+# Rules Go
 http_archive(
     name = "io_bazel_rules_go",
     sha256 = "c8035e8ae248b56040a65ad3f0b7434712e2037e5dfdcebfe97576e620422709",
@@ -11,6 +12,7 @@ http_archive(
     ],
 )
 
+# Bazel Gazelle
 http_archive(
     name = "bazel_gazelle",
     sha256 = "32938bda16e6700063035479063d9d24c60eda8d79fd4739563f50d331cb3209",
@@ -20,8 +22,19 @@ http_archive(
     ],
 )
 
+http_archive(
+    name = "com_google_protobuf",
+    sha256 = "d0f5f605d0d656007ce6c8b5a82df3037e1d8fe8b121ed42e536f569dec16113",
+    strip_prefix = "protobuf-3.14.0",
+    urls = [
+        "https://github.com/protocolbuffers/protobuf/archive/v3.14.0.tar.gz",
+        "https://mirror.bazel.build/github.com/protocolbuffers/protobuf/archive/v3.14.0.tar.gz",
+    ],
+)
+
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 
 ############################################################
 # Define your own dependencies here using go_repository.
@@ -38,3 +51,5 @@ go_rules_dependencies()
 go_register_toolchains(version = "1.21.5")
 
 gazelle_dependencies()
+
+protobuf_deps()
