@@ -4,4 +4,3 @@
 *.bazel-testlogs/
 *.ijwb/
 *.idea/
-MODULE.bazel.lock
