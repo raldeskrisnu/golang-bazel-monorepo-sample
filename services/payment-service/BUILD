@@ -8,6 +8,7 @@ go_library(
     deps = [
         "//shared_library:go_default_library",
         "@com_github_gorilla_mux//:go_default_library",
+        "//proto:calculation_go_proto",
     ],
 )
 
