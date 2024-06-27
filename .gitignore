@@ -1,7 +1,7 @@
-bazel-bin
-bazel-go-monorepo
-bazel-out
-bazel-testlogs
-.ijwb
-.idea
+*.bazel-bin/
+*.bazel-go-monorepo/
+*.bazel-out/
+*.bazel-testlogs/
+*.ijwb/
+*.idea/
 MODULE.bazel.lock

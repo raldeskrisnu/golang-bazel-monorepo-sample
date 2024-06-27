@@ -1,9 +1,9 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_library(
-    name = "order_lib",
+    name = "payment_lib",
     srcs = glob(["*.go"]),
-    importpath = "go-monorepo/services/order-service",
+    importpath = "go-monorepo/services/payment-service",
     visibility = ["//visibility:private"],
     deps = [
         "//shared_library:go_default_library",
@@ -12,12 +12,12 @@ go_library(
 )
 
 go_binary(
-    name = "order-service",
-    embed = [":order_lib"],
+    name = "payment-service",
+    embed = [":payment_lib"],
     visibility = ["//visibility:public"],
 )
 
 alias(
     name = "run",
-    actual = ":order-service",
+    actual = ":payment-service",
 )
